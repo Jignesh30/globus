@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="invoice" verbose="10" parallel="false" thread-count="4">
+
+	
+	<listeners>
+	 <!-- <listener class-name="com.globus.utility.RetryTestListener" />
+	  <listener class-name="com.globus.utility.RetryConterManagerListener" />  -->
+	  <listener class-name="com.globus.utility.CustomReporterListener" />
+	  <listener class-name="com.globus.utility.CustomReporterEmailBuildSummary" />
+	  <listener class-name="com.globus.utility.CustomReporterforEmail" />
+	  
+	  <listener class-name="com.globus.utility.CustomReporterBuildSummary" />
+	  <listener class-name="com.globus.utility.CustomReporterTestpassDetails" />
+	  <listener class-name="com.globus.utility.CustomReporterTestFailureDetails" />
+	  <listener class-name="com.globus.utility.CustomReporterTestskipDetails" />
+	  <listener class-name="com.globus.utility.CustomReporterTestDetails" />
+ 	</listeners>
+	
+	<test name="1. To verify user is able to generate regular invoice.">
+	<parameter name="userName" value="dhimmelberger" />
+	<parameter name="password" value="Globus!234" />
+	<parameter name="moduleName" value="A/R" />
+	<parameter name="leftPanelLink" value="Home" />
+		<classes>
+			<class name="com.globus.invoiceGeneration.index.InvoiceGenerationIndex">
+				<methods>
+					<include name="generateRegularInvoice" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+
+	<test name="2. To verify user is able to void generated invoice.">
+	<parameter name="userName" value="dhimmelberger" />
+	<parameter name="password" value="Globus!234" />
+	<parameter name="moduleName" value="A/R" />
+	<parameter name="leftPanelLink" value="Modify Invoice" />
+		<classes>
+			<class name="com.globus.invoiceGeneration.index.InvoiceGenerationIndex">
+				<methods>
+					<include name="voidGeneratedInvoice" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="3. To verify user is able to create new sales order.">
+	<parameter name="userName" value="nundercofler" />
+	<parameter name="password" value="Globus!234" />
+	<parameter name="moduleName" value="Cust Service" />
+	<parameter name="leftPanelLink" value="New Order" />
+		<classes>
+			<class name="com.globus.customerService.index.CustomerServiceIndex">
+				<methods>
+					<include name="processNewSalesOrder" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	  
+	<test name="4. To verify user is able to setup new account.">
+	<parameter name="userName" value="mquick" />
+	<parameter name="password" value="Globus!234" />
+	<parameter name="moduleName" value="Sales Admin" />
+	<parameter name="leftPanelLink" value="Account Setup" />
+		<classes>
+			<class name="com.globus.accountSetup.index.AccountSetupIndex">
+				<methods>
+					<include name="accountSetup" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	
+</suite>

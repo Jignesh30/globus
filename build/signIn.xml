@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="signIn" verbose="10" parallel="false" thread-count="2">
+	
+	<listeners>
+	  <listener class-name="com.globus.utility.CustomReporterListener" />
+	  <listener class-name="com.globus.utility.CustomReporterEmailBuildSummary" />
+	  <listener class-name="com.globus.utility.CustomReporterforEmail" />
+	  
+	  <listener class-name="com.globus.utility.CustomReporterBuildSummary" />
+	  <listener class-name="com.globus.utility.CustomReporterTestpassDetails" />
+	  <listener class-name="com.globus.utility.CustomReporterTestFailureDetails" />
+	  <listener class-name="com.globus.utility.CustomReporterTestskipDetails" />
+	  <listener class-name="com.globus.utility.CustomReporterTestDetails" />
+ 	</listeners>
+	
+	<test name="1. To verify user is able to signIn.">
+	<parameter name="userName" value="dhimmelberger" />
+	<parameter name="password" value="Globus!234" />
+		<classes>
+			<class name="com.globus.signInIndex.SignInIndex">
+				<methods>
+					<include name="signIn_with_ValidCredential" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+</suite>
