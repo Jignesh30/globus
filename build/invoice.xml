@@ -30,7 +30,7 @@
 		</classes>
 	</test>
 	
-
+<!-- 
 	<test name="2. To verify user is able to void generated invoice.">
 	<parameter name="userName" value="dhimmelberger" />
 	<parameter name="password" value="Globus!234" />
@@ -73,6 +73,6 @@
 			</class>
 		</classes>
 	</test>
-
+ -->
 	
 </suite>
